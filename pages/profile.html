@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - UniNest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body class="profile-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M16 2L2 10v12c0 6.627 5.373 12 12 12s12-5.373 12-12V10l-10-8z" fill="currentColor"/>
+                </svg>
+                <span>UniNest</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="dashboard.html">Dashboard</a></li>
+                <li><a href="profile.html" class="active">Profile</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="#" class="nav-login">Logout</a>
+            </div>
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Profile Content -->
+    <main class="profile-container">
+        <div class="container">
+            <h1>User Profile</h1>
+
+            <div class="profile-card">
+                <div class="profile-header">
+                    <div class="profile-picture">
+                        👤
+                    </div>
+                    <div class="profile-info">
+                        <h2 id="userName">Jane Doe</h2>
+                        <p id="userEmail">jane.doe@email.com</p>
+                        <p class="profile-bio">Computer Science Student • Year 2</p>
+                    </div>
+                </div>
+
+                <form id="profileForm" class="profile-form">
+                    <div class="form-section">
+                        <h3>Personal Information</h3>
+                        <div class="form-group">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName" name="fullName" value="Jane Doe">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">📞</span>
+                                <input type="tel" id="phone" name="phone" value="" placeholder="e.g., +1 (555) 123-4567">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" name="bio" rows="4" placeholder="Tell us about yourself..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="form-section">
+                        <h3>Accommodation Preferences</h3>
+                        <div class="form-group">
+                            <label for="budget">Budget ($/month)</label>
+                            <input type="number" id="budget" name="budget" value="800">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="distance">Distance from Campus (km)</label>
+                            <div class="input-with-icon">
+                                <span class="input-icon">📍</span>
+                                <input type="number" id="distance" name="distance" value="5">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Room Type Preference</label>
+                            <div class="room-type-options">
+                                <label class="room-type-option active" for="shared">
+                                    <input type="checkbox" id="shared" name="roomType" value="shared">
+                                    Shared
+                                </label>
+                                <label class="room-type-option" for="private">
+                                    <input type="checkbox" id="private" name="roomType" value="private" checked>
+                                    Private
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="moveDate">Move-in Date</label>
+                            <input type="date" id="moveDate" name="moveDate">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-lg">Save Changes</button>
+                </form>
+
+                <div class="profile-actions">
+                    <button class="btn btn-outline" onclick="changePassword()">Change Password</button>
+                    <button class="btn btn-danger" onclick="deleteAccount()">Delete Account</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 UniNest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const roomOptions = document.querySelectorAll('.room-type-option');
+            roomOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    const checkbox = this.querySelector('input[type="checkbox"]');
+                    checkbox.checked = !checkbox.checked;
+                    this.classList.toggle('active', checkbox.checked);
+                });
+            });
+
+            roomOptions.forEach(option => {
+                const checkbox = option.querySelector('input[type="checkbox"]');
+                if (checkbox.checked) {
+                    option.classList.add('active');
+                }
+            });
+        });
+
+        function changePassword() {
+            alert('Change password functionality would be implemented here.');
+        }
+
+        function deleteAccount() {
+            if (confirm('Are you sure you want to delete your account? This action cannot be undone.')) {
+                alert('Account deletion would be processed here.');
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - UniNest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2L2 10v12c0 6.627 5.373 12 12 12s12-5.373 12-12V10l-10-8z" fill="currentColor"/>
+                    </svg>
+                    <span>UniNest</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="dashboard.html" class="active">Dashboard</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="profile.html" class="user-profile-nav-link">
+                    <span class="user-avatar-sm">👤</span>
+                    <span class="user-name-nav">Alex Chen</span>
+                </a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="dashboard-main">
+        <div class="container">
+            <!-- ==================== HERO SECTION WITH MESH GRADIENT ==================== -->
+            <section class="hero-section-modern">
+                <div class="hero-mesh-gradient"></div>
+                <div class="hero-content">
+                    <div class="hero-text">
+                        <p class="hero-greeting">Welcome back, Alex!</p>
+                        <p class="hero-subtitle">Let's find your perfect student home.</p>
+                    </div>
+                    <div class="hero-stats-wrapper">
+                        <div class="stat-card-glass">
+                            <span class="stat-icon">❤️</span>
+                            <div class="stat-info">
+                                <p class="stat-label">Saved</p>
+                                <p class="stat-value">8</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-glass">
+                            <span class="stat-icon">📋</span>
+                            <div class="stat-info">
+                                <p class="stat-label">Applications</p>
+                                <p class="stat-value">3</p>
+                            </div>
+                        </div>
+                        <div class="stat-card-glass">
+                            <span class="stat-icon">✅</span>
+                            <div class="stat-info">
+                                <p class="stat-label">Approved</p>
+                                <p class="stat-value">1</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ==================== MODERN SEARCH SECTION ==================== -->
+            <section class="search-section-modern">
+                <h2 class="section-title-modern">🔍 Find Your Match</h2>
+                <form class="matching-form-modern" id="matchingForm">
+                    <div class="form-row-modern">
+                        <!-- Budget Filter -->
+                        <div class="form-group-modern">
+                            <label for="budgetInput">Budget per month</label>
+                            <div class="input-wrapper-glass">
+                                <span class="currency-icon">₱</span>
+                                <input type="number" id="budgetInput" placeholder="500" min="0" max="10000">
+                                <span class="input-separator">—</span>
+                                <input type="number" id="budgetMaxInput" placeholder="1500" min="0" max="10000">
+                            </div>
+                        </div>
+
+                        <!-- School Filter -->
+                        <div class="form-group-modern">
+                            <label for="schoolSelect">School/University</label>
+                            <select id="schoolSelect" class="select-glass">
+                                <option value="">Select your school</option>
+                                <option value="state-u">State University</option>
+                                <option value="tech-college">Tech College</option>
+                                <option value="city-u">City University</option>
+                                <option value="central-institute">Central Institute</option>
+                            </select>
+                        </div>
+
+                        <!-- Distance Filter -->
+                        <div class="form-group-modern">
+                            <label for="distanceInput">Distance from campus</label>
+                            <div class="input-wrapper-glass">
+                                <input type="number" id="distanceInput" placeholder="5" min="0" max="50">
+                                <span class="distance-unit">km</span>
+                            </div>
+                        </div>
+
+                        <!-- Safety Filter -->
+                        <div class="form-group-modern">
+                            <label for="safetySelect">Safety Priority</label>
+                            <select id="safetySelect" class="select-glass">
+                                <option value="any">Any</option>
+                                <option value="high">High security</option>
+                                <option value="medium">24/7 support</option>
+                                <option value="low">Standard</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-actions-modern">
+                        <button type="submit" class="btn btn-primary">Find Matches</button>
+                        <button type="reset" class="btn btn-outline">Reset Filters</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- ==================== DASHBOARD GRID - 3 COLUMNS ==================== -->
+            <div class="dashboard-grid-modern">
+                <!-- ==================== LEFT COLUMN (Main Content) ==================== -->
+                <div class="dashboard-left-modern">
+                    <!-- ==================== RECOMMENDED LISTINGS ==================== -->
+                    <section class="section-modern">
+                        <div class="section-header-modern">
+                            <h2>⭐ Recommended For You</h2>
+                            <a href="listings.html" class="link-arrow">View all →</a>
+                        </div>
+
+                        <div class="recommendations-grid-modern">
+                            <!-- Recommendation Card 1 -->
+                            <div class="recommendation-card-modern">
+                                <div class="rec-image-wrapper-modern">
+                                    <img src="../assets/images/sharedapartment.jpg" alt="Cozy Shared Apartment" class="rec-image">
+                                    <span class="rec-badge-modern rec-badge-best-modern">Best Match</span>
+                                    <button class="rec-like-btn-modern">♡</button>
+                                </div>
+                                <div class="rec-content-modern">
+                                    <h3>Cozy Shared Apartment</h3>
+                                    <div class="rec-meta">
+                                        <span>📍 2 km from campus</span>
+                                        <span>⭐ 4.8 (142 reviews)</span>
+                                    </div>
+                                    <p class="rec-desc">Perfect for students seeking comfortable shared living. Modern furnishings and high-speed WiFi.</p>
+                                    <div class="rec-features-modern">
+                                        <span class="feature-badge-modern">WiFi</span>
+                                        <span class="feature-badge-modern">Furnished</span>
+                                        <span class="feature-badge-modern">Laundry</span>
+                                    </div>
+                                    <div class="rec-footer-modern">
+                                        <span class="rec-price">₱8000/month</span>
+                                        <a href="listing-detail.html" class="btn btn-sm btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recommendation Card 2 -->
+                            <div class="recommendation-card-modern">
+                                <div class="rec-image-wrapper-modern">
+                                    <img src="../assets/images/moderndorm.jpg" alt="Modern Studio" class="rec-image">
+                                    <span class="rec-badge-modern rec-badge-new-modern">New Listing</span>
+                                    <button class="rec-like-btn-modern">♡</button>
+                                </div>
+                                <div class="rec-content-modern">
+                                    <h3>Modern Studio Apartment</h3>
+                                    <div class="rec-meta">
+                                        <span>📍 1.5 km from campus</span>
+                                        <span>⭐ 4.6 (89 reviews)</span>
+                                    </div>
+                                    <p class="rec-desc">Sleek, modern studio with all amenities. Perfect for students who value independence.</p>
+                                    <div class="rec-features-modern">
+                                        <span class="feature-badge-modern">AC</span>
+                                        <span class="feature-badge-modern">Kitchen</span>
+                                        <span class="feature-badge-modern">Gym</span>
+                                    </div>
+                                    <div class="rec-footer-modern">
+                                        <span class="rec-price">₱4500/month</span>
+                                        <a href="listing-detail.html" class="btn btn-sm btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recommendation Card 3 -->
+                            <div class="recommendation-card-modern">
+                                <div class="rec-image-wrapper-modern">
+                                    <img src="../assets/images/luxurystudentcomplex.jpg" alt="Luxury Dorm" class="rec-image">
+                                    <span class="rec-badge-modern rec-badge-popular-modern">Popular</span>
+                                    <button class="rec-like-btn-modern">♡</button>
+                                </div>
+                                <div class="rec-content-modern">
+                                    <h3>Luxury Student Housing</h3>
+                                    <div class="rec-meta">
+                                        <span>📍 0.8 km from campus</span>
+                                        <span>⭐ 4.9 (201 reviews)</span>
+                                    </div>
+                                    <p class="rec-desc">Premium student accommodation with social spaces and networking events.</p>
+                                    <div class="rec-features-modern">
+                                        <span class="feature-badge-modern">24/7 Support</span>
+                                        <span class="feature-badge-modern">Events</span>
+                                        <span class="feature-badge-modern">Security</span>
+                                    </div>
+                                    <div class="rec-footer-modern">
+                                        <span class="rec-price">₱9500/month</span>
+                                        <a href="listing-detail.html" class="btn btn-sm btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Recommendation Card 4 -->
+                            <div class="recommendation-card-modern">
+                                <div class="rec-image-wrapper-modern">
+                                    <img src="../assets/images/BudgetHostel.jpg" alt="Budget Hostel" class="rec-image">
+                                    <span class="rec-badge-modern rec-badge-budget-modern">Budget</span>
+                                    <button class="rec-like-btn-modern">♡</button>
+                                </div>
+                                <div class="rec-content-modern">
+                                    <h3>Affordable Hostel Living</h3>
+                                    <div class="rec-meta">
+                                        <span>📍 1.2 km from campus</span>
+                                        <span>⭐ 4.2 (156 reviews)</span>
+                                    </div>
+                                    <p class="rec-desc">Budget-friendly option with shared rooms and full communal facilities.</p>
+                                    <div class="rec-features-modern">
+                                        <span class="feature-badge-modern">WiFi</span>
+                                        <span class="feature-badge-modern">Kitchen</span>
+                                        <span class="feature-badge-modern">Social</span>
+                                    </div>
+                                    <div class="rec-footer-modern">
+                                        <span class="rec-price">₱4500/month</span>
+                                        <a href="listing-detail.html" class="btn btn-sm btn-primary">View Details</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- ==================== BOOKING STATUS ==================== -->
+                    <section class="section-modern">
+                        <div class="section-header-modern">
+                            <h2>📋 Your Booking Status</h2>
+                        </div>
+
+                        <div class="booking-list-modern">
+                            <!-- Pending Application -->
+                            <div class="booking-card-modern booking-card-pending-modern">
+                                <div class="booking-status-badge-modern pending-badge-modern">⏳ Pending</div>
+                                <div class="booking-content-modern">
+                                    <div class="booking-header-modern">
+                                        <h3>Modern Studio Apartment</h3>
+                                        <p class="booking-date">Applied 3 days ago</p>
+                                    </div>
+                                    <div class="booking-details-modern">
+                                        <span>📍 1.5 km from State University</span>
+                                        <span>💰 ₱4500/month</span>
+                                        <span>📱 Contact: 09123457890</span>
+                                    </div>
+                                    <div class="booking-progress-modern">
+                                        <p class="progress-label-modern">Application Status</p>
+                                        <div class="progress-bar-modern">
+                                            <div class="progress-fill-modern" style="width: 50%;"></div>
+                                        </div>
+                                        <p class="progress-text-modern">Under review by landlord</p>
+                                    </div>
+                                    <div class="booking-actions-modern">
+                                        <button class="btn btn-sm btn-outline">View Details</button>
+                                        <button class="btn btn-sm btn-outline">Message Landlord</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Approved Application -->
+                            <div class="booking-card-modern booking-card-approved-modern">
+                                <div class="booking-status-badge-modern approved-badge-modern">✅ Approved</div>
+                                <div class="booking-content-modern">
+                                    <div class="booking-header-modern">
+                                        <h3>Cozy Shared Apartment</h3>
+                                        <p class="booking-date">Approved 1 week ago</p>
+                                    </div>
+                                    <div class="booking-details-modern">
+                                        <span>📍 2 km from State University</span>
+                                        <span>💰 ₱8000/month</span>
+                                        <span>🔑 Consider booking to secure your room</span>
+                                    </div>
+                                    <div class="booking-next-steps-modern">
+                                        <p class="next-steps-label-modern">Next Steps</p>
+                                        <ol class="next-steps-list-modern">
+                                            <li>Review lease agreement</li>
+                                            <li>Pay deposit (due by May 1)</li>
+                                            <li>Confirm move-in date</li>
+                                        </ol>
+                                    </div>
+                                    <div class="booking-actions-modern">
+                                        <button class="btn btn-sm btn-primary">Book Now</button>
+                                        <button class="btn btn-sm btn-outline">View Lease</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Rejected Application -->
+                            <div class="booking-card-modern booking-card-rejected-modern">
+                                <div class="booking-status-badge-modern rejected-badge-modern">❌ Not Matched</div>
+                                <div class="booking-content-modern">
+                                    <div class="booking-header-modern">
+                                        <h3>Premium Luxury Housing</h3>
+                                        <p class="booking-date">Application rejected 5 days ago</p>
+                                    </div>
+                                    <div class="booking-details-modern">
+                                        <span>📍 0.5 km from State University</span>
+                                        <span>💰 ₱9500/month</span>
+                                        <span>⚠️ Reason: Budget limit exceeded</span>
+                                    </div>
+                                    <div class="booking-suggestion-modern">
+                                        <p class="suggestion-label-modern">💡 Suggestions</p>
+                                        <p class="suggestion-text-modern">Consider adjusting your budget or check other properties in your price range.</p>
+                                    </div>
+                                    <div class="booking-actions-modern">
+                                        <a href="listings.html" class="btn btn-sm btn-primary">Browse Similar</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+
+                <!-- ==================== SECONDARY SIDEBAR (Right Column) ==================== -->
+                <aside class="dashboard-right-modern">
+                    <!-- Profile Complete Card -->
+                    <section class="sidebar-card-modern profile-card-modern">
+                        <div class="card-header-modern">
+                            <h3>📊 Profile Complete</h3>
+                            <p class="completion-percent">75%</p>
+                        </div>
+                        <div class="progress-bar-gradient">
+                            <div class="progress-fill-gradient" style="width: 75%;"></div>
+                        </div>
+                        <p class="card-subtext">3 more steps to complete your profile</p>
+                        <a href="profile.html" class="btn btn-outline btn-block" style="margin-top: var(--space-lg);">Complete Now</a>
+                    </section>
+
+                    <!-- Safety Tips Card -->
+                    <section class="sidebar-card-modern safety-card-modern">
+                        <h3>🛡️ Safety Tips</h3>
+                        <ul class="tips-list-modern">
+                            <li>✓ Always verify landlord credentials</li>
+                            <li>✓ Visit property before booking</li>
+                            <li>✓ Review lease terms carefully</li>
+                            <li>✓ Ask about deposit policies</li>
+                            <li>✓ Take photos of room condition</li>
+                        </ul>
+                    </section>
+
+                    <!-- Floating Action Card -->
+                    <section class="sidebar-card-modern action-card-modern">
+                        <h3>⚡ Quick Actions</h3>
+                        <div class="action-buttons">
+                            <a href="#" class="action-link">💬 Message Landlord</a>
+                            <a href="#" class="action-link">📋 View Lease</a>
+                            <a href="listings.html" class="action-link">🔍 Browse More</a>
+                        </div>
+                    </section>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UniNest</h4>
+                    <p>Finding the perfect student home made simple.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Report Issue</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UniNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

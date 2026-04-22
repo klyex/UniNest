@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cozy Shared Apartment - UniNest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2L2 10v12c0 6.627 5.373 12 12 12s12-5.373 12-12V10l-10-8z" fill="currentColor"/>
+                    </svg>
+                    <span>UniNest</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="listings.html">Listings</a></li>
+                <li><a href="login.html">Login</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="login.html" class="nav-login">Login</a>
+                <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== MAIN CONTENT ==================== -->
+    <main class="listing-detail">
+        <div class="container">
+            <!-- ==================== BREADCRUMB ==================== -->
+            <div class="breadcrumb">
+                <a href="../index.html">Home</a> / 
+                <a href="listings.html">Listings</a> / 
+                <span>Cozy Shared Apartment</span>
+            </div>
+
+            <div class="detail-wrapper">
+                <!-- ==================== LEFT SECTION (Image Gallery + Details) ==================== -->
+                <div class="detail-left">
+                    <!-- Image Gallery -->
+                    <section class="image-gallery">
+                        <div class="gallery-main">
+                            <img id="mainImage" src="../assets/images/placeholder.jpg" alt="Main image" class="main-image">
+                            <button class="gallery-nav prev-btn" id="prevBtn" aria-label="Previous image">❮</button>
+                            <button class="gallery-nav next-btn" id="nextBtn" aria-label="Next image">❯</button>
+                            <div class="gallery-indicators">
+                                <span class="indicator active" data-index="0"></span>
+                                <span class="indicator" data-index="1"></span>
+                                <span class="indicator" data-index="2"></span>
+                                <span class="indicator" data-index="3"></span>
+                            </div>
+                        </div>
+
+                        <div class="gallery-thumbnails">
+                            <div class="thumbnail active" data-index="0">
+                                <img src="../assets/images/placeholder.jpg" alt="Thumbnail 1">
+                            </div>
+                            <div class="thumbnail" data-index="1">
+                                <img src="../assets/images/placeholder.jpg" alt="Thumbnail 2">
+                            </div>
+                            <div class="thumbnail" data-index="2">
+                                <img src="../assets/images/placeholder.jpg" alt="Thumbnail 3">
+                            </div>
+                            <div class="thumbnail" data-index="3">
+                                <img src="../assets/images/placeholder.jpg" alt="Thumbnail 4">
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline" id="viewAllGallery">View All Photos →</button>
+                    </section>
+
+                    <!-- Property Overview -->
+                    <section class="property-overview">
+                        <div class="overview-header">
+                            <div>
+                                <h1>Cozy Shared Apartment</h1>
+                                <p class="property-type">2 Bedroom • 1 Bathroom • Fully Furnished</p>
+                            </div>
+                            <button class="save-btn" id="saveListingBtn">♡ Save</button>
+                        </div>
+
+                        <div class="rating-row">
+                            <span class="stars-large">★★★★★</span>
+                            <span class="rating-number">4.8</span>
+                            <span class="reviews-link">(142 reviews)</span>
+                        </div>
+
+                        <p class="property-description">
+                            This charming shared apartment is perfect for students seeking a comfortable and social living environment. Located in the heart of Central Campus, it features modern furnishings, high-speed WiFi, and access to communal spaces. The apartment is well-maintained and has been a favorite among students for the past 3 years.
+                        </p>
+                    </section>
+
+                    <!-- Location Info -->
+                    <section class="location-section">
+                        <h2>📍 Location</h2>
+                        <div class="location-content">
+                            <div class="location-info">
+                                <p><strong>Central Campus</strong></p>
+                                <p class="text-muted">2 km from campus • Walking distance to city center</p>
+                            </div>
+                            <div class="map-placeholder">
+                                <div class="map-box">
+                                    <p>🗺️ Map View</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nearby-amenities">
+                            <h3>Nearby</h3>
+                            <ul class="amenities-list">
+                                <li>🏫 University Campus - 0.2 km</li>
+                                <li>🏪 Supermarket - 0.5 km</li>
+                                <li>🏥 Hospital - 1 km</li>
+                                <li>🚌 Bus Station - 0.3 km</li>
+                                <li>🏊 Swimming Pool - 1.2 km</li>
+                            </ul>
+                        </div>
+                    </section>
+
+                    <!-- Amenities Section -->
+                    <section class="amenities-section">
+                        <h2>✨ What this place offers</h2>
+                        <div class="amenities-grid">
+                            <div class="amenity-card">
+                                <span class="amenity-icon">📶</span>
+                                <p>High-Speed WiFi</p>
+                            </div>
+                            <div class="amenity-card">
+                                <span class="amenity-icon">🛏️</span>
+                                <p>Furnished Bedrooms</p>
+                            </div>
+                            <div class="amenity-card">
+                                <span class="amenity-icon">🧺</span>
+                                <p>Laundry Machine</p>
+                            </div>
+                            <div class="amenity-card">
+                                <span class="amenity-icon">❄️</span>
+                                <p>Air Conditioning</p>
+                            </div>
+                            <div class="amenity-card">
+                                <span class="amenity-icon">🍳</span>
+                                <p>Shared Kitchen</p>
+                            </div>
+                            <div class="amenity-card">
+                                <span class="amenity-icon">📺</span>
+                                <p>Living Room</p>
+                            </div>
+                            <div class="amenity-card">
+                                <span class="amenity-icon">🚪</span>
+                                <p>24/7 Access</p>
+                            </div>
+                            <div class="amenity-card">
+                                <span class="amenity-icon">🌟</span>
+                                <p>Guest Friendly</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Safety Features Section -->
+                    <section class="safety-section">
+                        <h2>🛡️ Safety & Security</h2>
+                        <div class="safety-grid">
+                            <div class="safety-card">
+                                <span class="safety-icon">🔒</span>
+                                <h3>Secure Entry</h3>
+                                <p>Electronic lock system and keypad entry</p>
+                            </div>
+                            <div class="safety-card">
+                                <span class="safety-icon">📹</span>
+                                <h3>CCTV Cameras</h3>
+                                <p>24-hour surveillance in common areas</p>
+                            </div>
+                            <div class="safety-card">
+                                <span class="safety-icon">🚨</span>
+                                <h3>Emergency Alarm</h3>
+                                <p>Panic buttons in each bedroom</p>
+                            </div>
+                            <div class="safety-card">
+                                <span class="safety-icon">👥</span>
+                                <h3>24/7 Support</h3>
+                                <p>On-site manager available anytime</p>
+                            </div>
+                        </div>
+                    </section>
+
+                    <!-- Tenant Info Section -->
+                    <section class="tenant-info-section">
+                        <h2>👤 About the Landlord</h2>
+                        <div class="landlord-card">
+                            <div class="landlord-header">
+                                <div class="landlord-avatar">👨‍💼</div>
+                                <div class="landlord-details">
+                                    <h3>John Smith</h3>
+                                    <p class="landlord-meta">Property Owner • 5+ years experience</p>
+                                    <div class="landlord-rating">
+                                        <span class="stars">★★★★★</span>
+                                        <span>(28 reviews)</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <p class="landlord-description">
+                                John has been managing student properties for over 5 years and specializes in creating comfortable, affordable living spaces for students. He's known for quick response times and maintaining properties to the highest standards.
+                            </p>
+                            <button class="btn btn-outline">Contact Landlord</button>
+                        </div>
+                    </section>
+
+                    <!-- Reviews Section -->
+                    <section class="reviews-section">
+                        <h2>⭐ Guest Reviews (142)</h2>
+                        
+                        <div class="reviews-summary">
+                            <div class="rating-breakdown">
+                                <div class="rating-row">
+                                    <span class="rating-label">★★★★★</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span class="rating-count">75%</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span class="rating-label">★★★★☆</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 18%"></div>
+                                    </div>
+                                    <span class="rating-count">18%</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span class="rating-label">★★★☆☆</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 5%"></div>
+                                    </div>
+                                    <span class="rating-count">5%</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span class="rating-label">★★☆☆☆</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 2%"></div>
+                                    </div>
+                                    <span class="rating-count">2%</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list">
+                            <!-- Review 1 -->
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">👩‍🎓</div>
+                                        <div>
+                                            <h4>Sarah Johnson</h4>
+                                            <span class="review-date">2 weeks ago</span>
+                                        </div>
+                                    </div>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <h4 class="review-title">Perfect student housing!</h4>
+                                <p class="review-text">
+                                    The apartment is exactly as described. Great location, very clean, and the landlord is super helpful. WiFi is fast and the communal spaces are perfect for studying with roommates. Highly recommend!
+                                </p>
+                            </div>
+
+                            <!-- Review 2 -->
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">👨‍🎓</div>
+                                        <div>
+                                            <h4>Michael Chen</h4>
+                                            <span class="review-date">1 month ago</span>
+                                        </div>
+                                    </div>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <h4 class="review-title">Best place for students</h4>
+                                <p class="review-text">
+                                    Been living here for 2 semesters and absolutely love it. The apartment is well-maintained, very close to campus, and the rent is reasonable. The shared spaces are great for socializing. Would definitely book again.
+                                </p>
+                            </div>
+
+                            <!-- Review 3 -->
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">👩‍🎓</div>
+                                        <div>
+                                            <h4>Emma Wilson</h4>
+                                            <span class="review-date">1.5 months ago</span>
+                                        </div>
+                                    </div>
+                                    <span class="review-rating">★★★★☆</span>
+                                </div>
+                                <h4 class="review-title">Great overall, minor issues</h4>
+                                <p class="review-text">
+                                    Really good apartment with a fantastic location. The only minor issue is that the walls are thin so you can hear neighbors sometimes. But the landlord is responsive and the space is comfortable overall.
+                                </p>
+                            </div>
+
+                            <!-- Review 4 -->
+                            <div class="review-card">
+                                <div class="review-header">
+                                    <div class="reviewer-info">
+                                        <div class="reviewer-avatar">👨‍🎓</div>
+                                        <div>
+                                            <h4>David Lee</h4>
+                                            <span class="review-date">2 months ago</span>
+                                        </div>
+                                    </div>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <h4 class="review-title">Excellent value for money</h4>
+                                <p class="review-text">
+                                    For the price, this is unbeatable. Great amenities, safe neighborhood, and convenient location. The landlord is very professional and handles maintenance requests quickly. Highly satisfied!
+                                </p>
+                            </div>
+                        </div>
+
+                        <button class="btn btn-outline btn-block">View All Reviews</button>
+                    </section>
+
+                    <!-- Rules Section -->
+                    <section class="rules-section">
+                        <h2>📋 House Rules</h2>
+                        <ul class="rules-list">
+                            <li>✓ Check-in after 6 PM, Check-out before 11 AM</li>
+                            <li>✓ Quiet hours: 10 PM - 8 AM</li>
+                            <li>✓ No smoking inside the property</li>
+                            <li>✓ No pets allowed</li>
+                            <li>✓ Clean common areas after use</li>
+                            <li>✓ Guests must be registered 24 hours in advance</li>
+                            <li>✓ Alcohol is permitted in private rooms only</li>
+                            <li>✓ No parties or events without permission</li>
+                        </ul>
+                    </section>
+                </div>
+
+                <!-- ==================== RIGHT SECTION (Booking Panel) ==================== -->
+                <aside class="detail-right">
+                    <div class="booking-panel sticky-panel">
+                        <!-- Price Breakdown -->
+                        <div class="price-section">
+                            <h3>$650</h3>
+                            <p class="price-period">per month</p>
+                        </div>
+
+                        <div class="price-breakdown">
+                            <div class="breakdown-row">
+                                <span>Monthly rent</span>
+                                <strong>$650</strong>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Utilities (avg.)</span>
+                                <strong>$80</strong>
+                            </div>
+                            <div class="breakdown-row">
+                                <span>Internet</span>
+                                <strong>Included</strong>
+                            </div>
+                            <div class="breakdown-divider"></div>
+                            <div class="breakdown-row total">
+                                <span>Total per month approx.</span>
+                                <strong>$730</strong>
+                            </div>
+                        </div>
+
+                        <!-- Booking Actions -->
+                        <button class="btn btn-primary btn-block btn-lg" id="requestBookingBtn">Request Booking</button>
+                        <button class="btn btn-outline btn-block" id="contactLandlordBtn">Message Landlord</button>
+
+                        <!-- Booking Info -->
+                        <div class="booking-info">
+                            <div class="info-row">
+                                <span>Availability</span>
+                                <strong class="text-success">Available Now</strong>
+                            </div>
+                            <div class="info-row">
+                                <span>Lease Terms</span>
+                                <strong>3-12 months</strong>
+                            </div>
+                            <div class="info-row">
+                                <span>Deposit</span>
+                                <strong>$650</strong>
+                            </div>
+                        </div>
+
+                        <!-- Requirements -->
+                        <div class="requirements">
+                            <h4>Requirements</h4>
+                            <ul class="requirements-list">
+                                <li>✓ Valid student ID</li>
+                                <li>✓ References required</li>
+                                <li>✓ Income verification</li>
+                                <li>✓ Background check</li>
+                            </ul>
+                        </div>
+
+                        <!-- Trust Badge -->
+                        <div class="trust-badge">
+                            <p class="badge-text">🔒 This property is verified and secure</p>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UniNest</h4>
+                    <p>Finding the perfect student home made simple.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Help Center</a></li>
+                        <li><a href="#">Report Issue</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UniNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/listing-detail.js"></script>
+</body>
+</html>

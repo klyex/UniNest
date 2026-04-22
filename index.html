@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UniNest - Student Accommodation Matching</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="index.html">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2L2 10v12c0 6.627 5.373 12 12 12s12-5.373 12-12V10l-10-8z" fill="currentColor"/>
+                    </svg>
+                    <span>UniNest</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="pages/listings.html">Listings</a></li>
+                <li><a href="#how-it-works">How It Works</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="pages/login.html" class="nav-login">Login</a>
+                <a href="pages/signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+
+            <!-- Mobile Menu Toggle -->
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== HERO SECTION ==================== -->
+    <header class="hero" id="home">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <!-- HEADLINE AT TOP -->
+            <h1 class="hero-title-centered">Find Your Perfect Student Home</h1>
+
+            <!-- SUBTITLE -->
+            <p class="hero-subtitle-centered">Stop wasting time searching. Connect with compatible roommates and discover ideal accommodations near your campus.</p>
+            
+            <!-- Search Bar -->
+            <div class="search-container">
+                <form class="search-form" onsubmit="return false;">
+                    <div class="search-input-group">
+                        <input 
+                            type="text" 
+                            class="search-input" 
+                            placeholder="Where are you looking?"
+                            aria-label="Search accommodations"
+                        >
+                        <div class="search-filters">
+                            <div class="filter-item">
+                                <label for="min-price">Min</label>
+                                <input 
+                                    type="number" 
+                                    id="min-price" 
+                                    class="price-input" 
+                                    placeholder="₱450" 
+                                    min="0" 
+                                    step="50"
+                                    aria-label="Minimum price"
+                                >
+                            </div>
+                            <div class="filter-item">
+                                <label for="max-price">Max</label>
+                                <input 
+                                    type="number" 
+                                    id="max-price" 
+                                    class="price-input" 
+                                    placeholder="₱950" 
+                                    min="0" 
+                                    step="50"
+                                    aria-label="Maximum price"
+                                >
+                            </div>
+                        </div>
+                        <button type="button" class="search-btn" aria-label="Search">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                                <path d="M9 17C13.4183 17 17 13.4183 17 9C17 4.58172 13.4183 1 9 1C4.58172 1 1 4.58172 1 9C1 13.4183 4.58172 17 9 17Z" stroke="currentColor" stroke-width="2"/>
+                                <path d="M14.5 14.5L19 19" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            </svg>
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <!-- CTA BUTTONS -->
+            <div class="hero-cta">
+                <a href="pages/listings.html" class="btn btn-primary btn-lg">Browse Listings</a>
+                <a href="pages/signup.html" class="btn btn-outline btn-lg">Join as Student</a>
+            </div>
+
+            <!-- TRUST MESSAGE AT BOTTOM -->
+            <p class="hero-trust">🔒 Verified listings • 5000+ students matched • Completely free</p>
+        </div>
+    </header>
+
+    <!-- ==================== FEATURED LISTINGS ==================== -->
+    <section class="featured-listings" id="listings">
+        <div class="container">
+            <div class="section-header">
+                <h2>Featured Accommodations</h2>
+                <p>Handpicked properties perfect for student living</p>
+                <a href="pages/listings.html" class="link-arrow">View All Listings →</a>
+            </div>
+
+            <div class="listings-grid">
+                <!-- Listing Card 1 -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="assets/images/sharedapartment.jpg" alt="Cozy Shared Apartment" loading="lazy">
+                        <span class="listing-badge">Popular</span>
+                        <button class="like-btn" aria-label="Save listing">♡</button>
+                    </div>
+                    <div class="listing-info">
+                        <div class="listing-header">
+                            <h3>Cozy Shared Apartment</h3>
+                            <span class="rating">★ 4.8 <small>(142)</small></span>
+                        </div>
+                        <p class="listing-location">📍 Central Campus, 2 km away</p>
+                        <p class="listing-description">2 bedrooms, 1 bathroom, fully furnished</p>
+                        <div class="listing-features">
+                            <span class="feature-tag">WiFi</span>
+                            <span class="feature-tag">Furnished</span>
+                            <span class="feature-tag">Shared</span>
+                        </div>
+                        <div class="listing-footer">
+                            <div class="listing-price">
+                                <span class="price">₱8000.00</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <a href="pages/listings.html" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing Card 2 -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="assets/images/privatespace.jpg" alt="Private Room with Study Space" loading="lazy">
+                        <span class="listing-badge">New</span>
+                        <button class="like-btn" aria-label="Save listing">♡</button>
+                    </div>
+                    <div class="listing-info">
+                        <div class="listing-header">
+                            <h3>Private Room with Study Space</h3>
+                            <span class="rating">★ 4.9 <small>(98)</small></span>
+                        </div>
+                        <p class="listing-location">📍 Near Library, 1.5 km away</p>
+                        <p class="listing-description">Private room, shared kitchen, quiet environment</p>
+                        <div class="listing-features">
+                            <span class="feature-tag">WiFi</span>
+                            <span class="feature-tag">Private</span>
+                            <span class="feature-tag">Quiet</span>
+                        </div>
+                        <div class="listing-footer">
+                            <div class="listing-price">
+                                <span class="price">₱7500.00</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <a href="pages/listings.html" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing Card 3 -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="assets/images/moderndorm.jpg" alt="Modern Dorm with Amenities" loading="lazy">
+                        <span class="listing-badge budget">Budget</span>
+                        <button class="like-btn" aria-label="Save listing">♡</button>
+                    </div>
+                    <div class="listing-info">
+                        <div class="listing-header">
+                            <h3>Modern Dorm with Amenities</h3>
+                            <span class="rating">★ 4.7 <small>(186)</small></span>
+                        </div>
+                        <p class="listing-location">📍 Student Hub, 0.5 km away</p>
+                        <p class="listing-description">Shared rooms, gym access, common areas</p>
+                        <div class="listing-features">
+                            <span class="feature-tag">Gym</span>
+                            <span class="feature-tag">Social</span>
+                            <span class="feature-tag">Cheap</span>
+                        </div>
+                        <div class="listing-footer">
+                            <div class="listing-price">
+                                <span class="price">₱4500.00</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <a href="pages/listings.html" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Listing Card 4 -->
+                <div class="listing-card">
+                    <div class="listing-image">
+                        <img src="assets/images/luxurystudentcomplex.jpg" alt="Luxury Student Complex" loading="lazy">
+                        <button class="like-btn" aria-label="Save listing">♡</button>
+                    </div>
+                    <div class="listing-info">
+                        <div class="listing-header">
+                            <h3>Luxury Student Complex</h3>
+                            <span class="rating">★ 4.9 <small>(234)</small></span>
+                        </div>
+                        <p class="listing-location">📍 Downtown, 3 km away</p>
+                        <p class="listing-description">Premium facilities, rooftop lounge, concierge</p>
+                        <div class="listing-features">
+                            <span class="feature-tag">Premium</span>
+                            <span class="feature-tag">Rooftop</span>
+                            <span class="feature-tag">Concierge</span>
+                        </div>
+                        <div class="listing-footer">
+                            <div class="listing-price">
+                                <span class="price">₱9500.00</span>
+                                <span class="period">/month</span>
+                            </div>
+                            <a href="pages/listings.html" class="btn btn-small">Details</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== HOW IT WORKS ==================== -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>How UniNest Works</h2>
+                <p>Find your perfect home in just a few simple steps</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <div class="step-icon">👤</div>
+                    <h3>Create Your Profile</h3>
+                    <p>Tell us about yourself, your budget, preferences, and what you're looking for in a room or roommate.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <div class="step-icon">🔍</div>
+                    <h3>Search & Browse</h3>
+                    <p>Explore verified listings with detailed info, photos, and ratings from real students.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <div class="step-icon">💬</div>
+                    <h3>Connect & Chat</h3>
+                    <p>Message landlords or potential roommates directly. Ask questions and schedule viewings.</p>
+                </div>
+
+                <div class="step-card">
+                    <div class="step-number">4</div>
+                    <div class="step-icon">✅</div>
+                    <h3>Book Your Home</h3>
+                    <p>Once you find the perfect match, complete the booking and move in with confidence.</p>
+                </div>
+            </div>
+
+            <div class="stats-container">
+                <div class="stat">
+                    <h4>5,000+</h4>
+                    <p>Students Matched</p>
+                </div>
+                <div class="stat">
+                    <h4>2,000+</h4>
+                    <p>Listings Available</p>
+                </div>
+                <div class="stat">
+                    <h4>95%</h4>
+                    <p>Satisfaction Rate</p>
+                </div>
+                <div class="stat">
+                    <h4>48hrs</h4>
+                    <p>Avg. Match Time</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== WHY CHOOSE US ==================== -->
+    <section class="why-choose" id="why-us">
+        <div class="container">
+            <div class="section-header text-center">
+                <h2>Why Choose UniNest?</h2>
+                <p>We're the most trusted student housing platform</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">🛡️</div>
+                    <h3>Safe & Verified</h3>
+                    <p>All listings are verified and landlords are vetted for your safety and peace of mind.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Smart Matching</h3>
+                    <p>Our algorithm matches you with compatible roommates based on lifestyle and preferences.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💰</div>
+                    <h3>Best Prices</h3>
+                    <p>Find affordable accommodations tailored to your budget without hidden fees.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">📱</div>
+                    <h3>Easy to Use</h3>
+                    <p>Intuitive platform design makes finding and booking your home quick and hassle-free.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">💬</div>
+                    <h3>24/7 Support</h3>
+                    <p>Our team is always here to help you with questions or concerns about your booking.</p>
+                </div>
+
+                <div class="feature-item">
+                    <div class="feature-icon">🎓</div>
+                    <h3>Student Focused</h3>
+                    <p>Built by students, for students. We understand what you need in student housing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== CTA SECTION ==================== -->
+    <section class="cta-final">
+        <div class="container text-center">
+            <h2>Ready to Start Your Housing Journey?</h2>
+            <p>Join thousands of students who've found their perfect home</p>
+            <div class="cta-buttons">
+                <a href="pages/signup.html" class="btn btn-primary btn-lg">Get Started Now</a>
+                <a href="pages/listings.html" class="btn btn-outline btn-lg">Browse Listings</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UniNest</h4>
+                    <p>Finding the perfect student home made simple.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook">f</a>
+                        <a href="#" aria-label="Twitter">𝕏</a>
+                        <a href="#" aria-label="Instagram">📷</a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h4>For Students</h4>
+                    <ul>
+                        <li><a href="pages/listings.html">Browse Listings</a></li>
+                        <li><a href="pages/signup.html">Sign Up</a></li>
+                        <li><a href="#">How It Works</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>For Landlords</h4>
+                    <ul>
+                        <li><a href="#">Post Listing</a></li>
+                        <li><a href="#">Landlord Info</a></li>
+                        <li><a href="#">Pricing</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 UniNest. All rights reserved. | Made with 💙 for students</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

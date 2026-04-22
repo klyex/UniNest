@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Listings - UniNest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <!-- ==================== NAVIGATION ==================== -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="nav-brand">
+                <a href="../index.html">
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2L2 10v12c0 6.627 5.373 12 12 12s12-5.373 12-12V10l-10-8z" fill="currentColor"/>
+                    </svg>
+                    <span>UniNest</span>
+                </a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="listings.html" class="active">Listings</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <a href="login.html" class="nav-login">Login</a>
+                <a href="signup.html" class="btn btn-primary btn-sm">Sign Up</a>
+            </div>
+
+            <button class="mobile-menu-toggle" id="mobileMenuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ==================== PAGE HEADER ==================== -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Available Accommodations</h1>
+            <p>Find the perfect place for your student life</p>
+            <div class="results-count">Showing <span id="resultCount">12</span> listings</div>
+        </div>
+    </section>
+
+    <!-- ==================== LISTINGS PAGE ==================== -->
+    <main class="listings-page">
+        <div class="container listings-wrapper">
+            <!-- ==================== SIDEBAR FILTERS ==================== -->
+            <aside class="filters-sidebar">
+                <div class="filters-header">
+                    <h3>Filters</h3>
+                    <button class="filters-close" id="filtersClose" aria-label="Close filters">✕</button>
+                </div>
+
+                <form class="filters-form" id="filtersForm">
+                    <!-- Price Range Filter -->
+                    <div class="filter-section">
+                        <h4>Price Range</h4>
+                        <input type="range" id="priceSlider" class="filter-slider" min="200" max="10000" value="1500" data-range="1500">
+                        <div class="price-display">
+                            <strong>₱<span id="priceDisplay">1500</span>/month</span>
+                        </div>
+                    </div>
+
+                    <!-- Distance Filter -->
+                    <div class="filter-section">
+                        <h4>Distance from Campus</h4>
+                        <input type="range" id="distanceSlider" class="filter-slider" min="0" max="50" value="25">
+                        <div class="distance-display">
+                            <strong><span id="distanceDisplay">25</span> km</strong>
+                        </div>
+                    </div>
+
+                    <!-- University Filter -->
+                    <div class="filter-section">
+                        <h4>University</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="university" value="state-u">
+                                <span>State University</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="university" value="tech-college">
+                                <span>Tech College</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="university" value="city-uni">
+                                <span>City University</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="university" value="central-uni">
+                                <span>Central Institute</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Rating Filter -->
+                    <div class="filter-section">
+                        <h4>Minimum Rating</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="rating" value="5">
+                                <span>★★★★★ 5.0</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="rating" value="4">
+                                <span>★★★★☆ 4.0+</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="rating" value="3">
+                                <span>★★★☆☆ 3.0+</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Amenities Filter -->
+                    <div class="filter-section">
+                        <h4>Amenities</h4>
+                        <div class="filter-options">
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="amenities" value="wifi">
+                                <span>WiFi</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="amenities" value="parking">
+                                <span>Parking</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="amenities" value="gym">
+                                <span>Gym</span>
+                            </label>
+                            <label class="filter-checkbox">
+                                <input type="checkbox" name="amenities" value="furnished">
+                                <span>Furnished</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Apply Buttons -->
+                    <div class="filter-actions">
+                        <button type="submit" class="btn btn-primary btn-block">Apply Filters</button>
+                        <button type="reset" class="btn btn-outline btn-block">Clear All</button>
+                    </div>
+                </form>
+            </aside>
+
+            <!-- ==================== LISTINGS GRID ==================== -->
+            <section class="listings-main">
+                <!-- Mobile Filter Toggle -->
+                <div class="mobile-filters-toggle">
+                    <button class="btn btn-secondary btn-sm" id="filtersToggle">
+                        ⚙️ Filters
+                    </button>
+                    <div class="sort-options">
+                        <label>Sort by:</label>
+                        <select id="sortSelect" class="sort-select">
+                            <option value="recommended">Recommended</option>
+                            <option value="price-low">Price: Low to High</option>
+                            <option value="price-high">Price: High to Low</option>
+                            <option value="distance">Distance</option>
+                            <option value="rating">Rating</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Listings Grid -->
+                <div class="listings-grid">
+                    <!-- Listing Card 1 -->
+                    <div class="listing-card">
+                        <div class="card-image-wrapper">
+                            <img src="../assets/images/cozyapartment.jpg" alt="Cozy Shared Apartment" class="card-image" loading="lazy">
+                            <span class="card-badge badge-best">Best Match</span>
+                            <button class="card-like-btn" aria-label="Save listing">♡</button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Cozy Shared Apartment</h3>
+                                <div class="card-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.8</span>
+                                    <span class="reviews">(142)</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Central Campus</p>
+                            <p class="card-distance">2 km from campus</p>
+                            <p class="card-description">2 bedrooms, 1 bathroom, fully furnished</p>
+                            <div class="card-amenities">
+                                <span class="amenity-tag">WiFi</span>
+                                <span class="amenity-tag">Furnished</span>
+                                <span class="amenity-tag">Shared</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-amount">₱8000.00</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                                <a href="#" class="btn btn-small">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 2 -->
+                    <div class="listing-card">
+                        <div class="card-image-wrapper">
+                            <img src="../assets/images/privatespace.jpg" alt="Private Room with Study Space" class="card-image" loading="lazy">
+                            <span class="card-badge badge-new">New</span>
+                            <button class="card-like-btn" aria-label="Save listing">♡</button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Private Room with Study Space</h3>
+                                <div class="card-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="reviews">(98)</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Near Library</p>
+                            <p class="card-distance">1.5 km from campus</p>
+                            <p class="card-description">Private room, shared kitchen, quiet environment</p>
+                            <div class="card-amenities">
+                                <span class="amenity-tag">WiFi</span>
+                                <span class="amenity-tag">Private</span>
+                                <span class="amenity-tag">Quiet</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-amount">₱7500.00</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                                <a href="#" class="btn btn-small">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 3 -->
+                    <div class="listing-card">
+                        <div class="card-image-wrapper">
+                            <img src="../assets/images/moderndorm.jpg" alt="Modern Dorm with Amenities" class="card-image" loading="lazy">
+                            <span class="card-badge badge-budget">Budget</span>
+                            <button class="card-like-btn" aria-label="Save listing">♡</button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Modern Dorm with Amenities</h3>
+                                <div class="card-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-value">4.7</span>
+                                    <span class="reviews">(186)</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Student Hub</p>
+                            <p class="card-distance">0.5 km from campus</p>
+                            <p class="card-description">Shared rooms, gym access, common areas</p>
+                            <div class="card-amenities">
+                                <span class="amenity-tag">Gym</span>
+                                <span class="amenity-tag">Social</span>
+                                <span class="amenity-tag">Budget</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-amount">₱4500.00</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                                <a href="#" class="btn btn-small">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 4 -->
+                    <div class="listing-card">
+                        <div class="card-image-wrapper">
+                            <img src="../assets/images/luxurystudentcomplex.jpg" alt="Luxury Student Complex" class="card-image" loading="lazy">
+                            <button class="card-like-btn" aria-label="Save listing">♡</button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Luxury Student Complex</h3>
+                                <div class="card-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.9</span>
+                                    <span class="reviews">(234)</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Downtown</p>
+                            <p class="card-distance">3 km from campus</p>
+                            <p class="card-description">Premium facilities, rooftop lounge, concierge</p>
+                            <div class="card-amenities">
+                                <span class="amenity-tag">Premium</span>
+                                <span class="amenity-tag">Rooftop</span>
+                                <span class="amenity-tag">Concierge</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-amount">₱9500.00</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                                <a href="#" class="btn btn-small">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 5 -->
+                    <div class="listing-card">
+                        <div class="card-image-wrapper">
+                            <img src="../assets/images/SpaciousModernApartment.jpg" alt="Spacious & Modern Apartment" class="card-image" loading="lazy">
+                            <span class="card-badge badge-popular">Popular</span>
+                            <button class="card-like-btn" aria-label="Save listing">♡</button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Spacious & Modern Apartment</h3>
+                                <div class="card-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-value">4.6</span>
+                                    <span class="reviews">(76)</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Quiet Area</p>
+                            <p class="card-distance">4 km from campus</p>
+                            <p class="card-description">High ceilings, natural light, balcony</p>
+                            <div class="card-amenities">
+                                <span class="amenity-tag">Parking</span>
+                                <span class="amenity-tag">Furnished</span>
+                                <span class="amenity-tag">Balcony</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-amount">₱10,000.00</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                                <a href="#" class="btn btn-small">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 6 -->
+                    <div class="listing-card">
+                        <div class="card-image-wrapper">
+                            <img src="../assets/images/CozyStudioNearUniversity.jpg" alt="Cozy Studio Near University" class="card-image" loading="lazy">
+                            <button class="card-like-btn" aria-label="Save listing">♡</button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Cozy Studio Near University</h3>
+                                <div class="card-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-value">4.5</span>
+                                    <span class="reviews">(52)</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 University Ave</p>
+                            <p class="card-distance">1 km from campus</p>
+                            <p class="card-description">Studio apartment, kitchen, bathroom</p>
+                            <div class="card-amenities">
+                                <span class="amenity-tag">WiFi</span>
+                                <span class="amenity-tag">Studio</span>
+                                <span class="amenity-tag">Close</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-amount">₱6500.00</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                                <a href="#" class="btn btn-small">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 7 -->
+                    <div class="listing-card">
+                        <div class="card-image-wrapper">
+                            <img src="../assets/images/VibrantSharedHouse.jpg" alt="Vibrant Shared House" class="card-image" loading="lazy">
+                            <span class="card-badge badge-new">New</span>
+                            <button class="card-like-btn" aria-label="Save listing">♡</button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Vibrant Shared House</h3>
+                                <div class="card-rating">
+                                    <span class="stars">★★★★☆</span>
+                                    <span class="rating-value">4.4</span>
+                                    <span class="reviews">(41)</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Student District</p>
+                            <p class="card-distance">2.5 km from campus</p>
+                            <p class="card-description">5 bedrooms, garden, social atmosphere</p>
+                            <div class="card-amenities">
+                                <span class="amenity-tag">Garden</span>
+                                <span class="amenity-tag">Shared</span>
+                                <span class="amenity-tag">Social</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-amount">₱9500.00</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                                <a href="#" class="btn btn-small">Details</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Listing Card 8 -->
+                    <div class="listing-card">
+                        <div class="card-image-wrapper">
+                            <img src="../assets/images/ExecutiveDoubleBedroom.jpg" alt="Executive Double Bedroom" class="card-image" loading="lazy">
+                            <button class="card-like-btn" aria-label="Save listing">♡</button>
+                        </div>
+                        <div class="card-content">
+                            <div class="card-header">
+                                <h3 class="card-title">Executive Double Bedroom</h3>
+                                <div class="card-rating">
+                                    <span class="stars">★★★★★</span>
+                                    <span class="rating-value">4.8</span>
+                                    <span class="reviews">(63)</span>
+                                </div>
+                            </div>
+                            <p class="card-location">📍 Business District</p>
+                            <p class="card-distance">3.5 km from campus</p>
+                            <p class="card-description">Luxury double room, ensuite bathroom</p>
+                            <div class="card-amenities">
+                                <span class="amenity-tag">Ensuite</span>
+                                <span class="amenity-tag">Luxury</span>
+                                <span class="amenity-tag">Parking</span>
+                            </div>
+                            <div class="card-footer">
+                                <div class="card-price">
+                                    <span class="price-amount">₱5,500.00</span>
+                                    <span class="price-period">/month</span>
+                                </div>
+                                <a href="#" class="btn btn-small">Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Load More / Pagination -->
+                <div class="listings-pagination">
+                    <button class="btn btn-outline">Load More Listings</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>UniNest</h4>
+                    <p>Finding the perfect student home made simple.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Organization</h4>
+                    <ul>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Safety Tips</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Report Issue</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 UniNest. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/listings.js"></script>
+</body>
+</html>

@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Landlord Dashboard - UniNest</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <!-- ==================== LANDLORD LAYOUT ==================== -->
+    <div class="landlord-layout">
+        <!-- ==================== SIDEBAR NAVIGATION ==================== -->
+        <aside class="landlord-sidebar" id="landlordSidebar">
+            <div class="sidebar-header">
+                <a href="../index.html" class="sidebar-logo">
+                    <svg width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M16 2L2 10v12c0 6.627 5.373 12 12 12s12-5.373 12-12V10l-10-8z" fill="currentColor"/>
+                    </svg>
+                    <span>UniNest</span>
+                </a>
+                <button class="sidebar-close" id="sidebarClose">✕</button>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Management</h3>
+                    <ul class="nav-list">
+                        <li><a href="#" class="nav-item active" data-section="overview">
+                            <span class="nav-icon">📊</span>
+                            <span>Dashboard</span>
+                        </a></li>
+                        <li><a href="#" class="nav-item" data-section="listings">
+                            <span class="nav-icon">🏠</span>
+                            <span>My Listings</span>
+                        </a></li>
+                        <li><a href="#" class="nav-item" data-section="add-listing">
+                            <span class="nav-icon">➕</span>
+                            <span>Add Listing</span>
+                        </a></li>
+                        <li><a href="#" class="nav-item" data-section="bookings">
+                            <span class="nav-icon">📋</span>
+                            <span>Booking Requests</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Analytics</h3>
+                    <ul class="nav-list">
+                        <li><a href="#" class="nav-item" data-section="reviews">
+                            <span class="nav-icon">⭐</span>
+                            <span>Reviews</span>
+                        </a></li>
+                        <li><a href="#" class="nav-item" data-section="messages">
+                            <span class="nav-icon">💬</span>
+                            <span>Messages</span>
+                            <span class="badge">2</span>
+                        </a></li>
+                    </ul>
+                </div>
+
+                <div class="nav-section">
+                    <h3 class="nav-section-title">Account</h3>
+                    <ul class="nav-list">
+                        <li><a href="profile.html" class="nav-item">
+                            <span class="nav-icon">👤</span>
+                            <span>Profile</span>
+                        </a></li>
+                        <li><a href="login.html" class="nav-item">
+                            <span class="nav-icon">🚪</span>
+                            <span>Logout</span>
+                        </a></li>
+                    </ul>
+                </div>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="user-card">
+                    <div class="user-avatar">👨‍💼</div>
+                    <div class="user-info">
+                        <p class="user-name">John Smith</p>
+                        <p class="user-role">Landlord</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT AREA ==================== -->
+        <div class="landlord-main">
+            <!-- Top Header -->
+            <header class="landlord-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle" id="sidebarToggle">☰</button>
+                    <h1 class="page-title">Dashboard</h1>
+                </div>
+                <div class="header-right">
+                    <input type="text" class="header-search" placeholder="Search listings...">
+                    <div class="header-actions">
+                        <button class="action-btn" title="Notifications">🔔</button>
+                        <button class="action-btn" title="Settings">⚙️</button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Main Content -->
+            <main class="landlord-content">
+                <!-- ==================== OVERVIEW/STATS ==================== -->
+                <section id="overview" class="content-section active">
+                    <div class="stats-grid">
+                        <div class="stat-box">
+                            <div class="stat-icon">🏠</div>
+                            <div class="stat-details">
+                                <p class="stat-label">Total Listings</p>
+                                <p class="stat-number">12</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-details">
+                                <p class="stat-label">Total Bookings</p>
+                                <p class="stat-number">28</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon">💰</div>
+                            <div class="stat-details">
+                                <p class="stat-label">This Month</p>
+                                <p class="stat-number">$18,450</p>
+                            </div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-icon">⭐</div>
+                            <div class="stat-details">
+                                <p class="stat-label">Avg Rating</p>
+                                <p class="stat-number">4.8</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-columns">
+                        <!-- Recent Activity -->
+                        <section class="dashboard-card">
+                            <h2>📈 Recent Activity</h2>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <span class="activity-icon">✅</span>
+                                    <div class="activity-info">
+                                        <p class="activity-title">New booking confirmed</p>
+                                        <p class="activity-desc">Cozy Apartment - May 1st</p>
+                                        <p class="activity-time">2 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-icon">💬</span>
+                                    <div class="activity-info">
+                                        <p class="activity-title">New message received</p>
+                                        <p class="activity-desc">From Alex Chen</p>
+                                        <p class="activity-time">4 hours ago</p>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <span class="activity-icon">⭐</span>
+                                    <div class="activity-info">
+                                        <p class="activity-title">New review posted</p>
+                                        <p class="activity-desc">5-star review: "Great place!"</p>
+                                        <p class="activity-time">1 day ago</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+
+                        <!-- Quick Actions -->
+                        <section class="dashboard-card">
+                            <h2>🚀 Quick Actions</h2>
+                            <div class="action-buttons">
+                                <button class="action-btn-large">+ Add New Listing</button>
+                                <button class="action-btn-large outline">View All Bookings</button>
+                                <button class="action-btn-large outline">View Messages</button>
+                                <button class="action-btn-large outline">Analytics Report</button>
+                            </div>
+                        </section>
+                    </div>
+                </section>
+
+                <!-- ==================== MY LISTINGS ==================== -->
+                <section id="listings" class="content-section">
+                    <div class="section-header">
+                        <h2>My Listings</h2>
+                        <button class="btn btn-primary">+ Add New Listing</button>
+                    </div>
+
+                    <div class="listings-container">
+                        <!-- Listing Card 1 -->
+                        <div class="listing-management-card">
+                            <div class="listing-image-section">
+                                <img src="../assets/images/placeholder.jpg" alt="Cozy Shared Apartment">
+                                <span class="status-badge status-active">Active</span>
+                            </div>
+                            <div class="listing-management-content">
+                                <h3>Cozy Shared Apartment</h3>
+                                <p class="listing-meta">📍 Central Campus • 2 km away</p>
+                                <div class="listing-stats">
+                                    <span class="stat-pill">👁️ 1,250 views</span>
+                                    <span class="stat-pill">❤️ 45 likes</span>
+                                    <span class="stat-pill">⭐ 4.8 (28 reviews)</span>
+                                </div>
+                                <p class="listing-price">$650/month</p>
+                                <div class="listing-actions">
+                                    <a href="listing-detail.html" class="btn btn-sm">View</a>
+                                    <button class="btn btn-sm btn-outline">Edit</button>
+                                    <button class="btn btn-sm btn-outline">Stats</button>
+                                    <button class="btn btn-sm btn-danger">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 2 -->
+                        <div class="listing-management-card">
+                            <div class="listing-image-section">
+                                <img src="../assets/images/placeholder.jpg" alt="Modern Studio">
+                                <span class="status-badge status-active">Active</span>
+                            </div>
+                            <div class="listing-management-content">
+                                <h3>Modern Studio Apartment</h3>
+                                <p class="listing-meta">📍 Downtown • 1.5 km away</p>
+                                <div class="listing-stats">
+                                    <span class="stat-pill">👁️ 980 views</span>
+                                    <span class="stat-pill">❤️ 38 likes</span>
+                                    <span class="stat-pill">⭐ 4.6 (18 reviews)</span>
+                                </div>
+                                <p class="listing-price">$820/month</p>
+                                <div class="listing-actions">
+                                    <a href="listing-detail.html" class="btn btn-sm">View</a>
+                                    <button class="btn btn-sm btn-outline">Edit</button>
+                                    <button class="btn btn-sm btn-outline">Stats</button>
+                                    <button class="btn btn-sm btn-danger">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Listing Card 3 -->
+                        <div class="listing-management-card">
+                            <div class="listing-image-section">
+                                <img src="../assets/images/placeholder.jpg" alt="Luxury Housing">
+                                <span class="status-badge status-inactive">Inactive</span>
+                            </div>
+                            <div class="listing-management-content">
+                                <h3>Luxury Student Housing</h3>
+                                <p class="listing-meta">📍 Campus West • 0.8 km away</p>
+                                <div class="listing-stats">
+                                    <span class="stat-pill">👁️ 2,100 views</span>
+                                    <span class="stat-pill">❤️ 156 likes</span>
+                                    <span class="stat-pill">⭐ 4.9 (42 reviews)</span>
+                                </div>
+                                <p class="listing-price">$1,200/month</p>
+                                <div class="listing-actions">
+                                    <a href="listing-detail.html" class="btn btn-sm">View</a>
+                                    <button class="btn btn-sm btn-outline">Edit</button>
+                                    <button class="btn btn-sm btn-outline">Stats</button>
+                                    <button class="btn btn-sm btn-danger">Remove</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== ADD LISTING FORM ==================== -->
+                <section id="add-listing" class="content-section">
+                    <div class="section-header">
+                        <h2>Add New Listing</h2>
+                    </div>
+
+                    <div class="form-card">
+                        <form class="add-listing-form" id="addListingForm">
+                            <div class="form-section">
+                                <h3>Basic Information</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="title">Property Title *</label>
+                                        <input type="text" id="title" placeholder="e.g., Cozy Shared Apartment" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="type">Property Type *</label>
+                                        <select id="type" required>
+                                            <option value="">Select type</option>
+                                            <option value="apartment">Apartment</option>
+                                            <option value="studio">Studio</option>
+                                            <option value="house">House</option>
+                                            <option value="dorm">Dorm</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="address">Address *</label>
+                                        <input type="text" id="address" placeholder="Street address" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="distance">Distance from Campus (km) *</label>
+                                        <input type="number" id="distance" placeholder="e.g., 2" min="0" max="50" required>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Details</h3>
+                                <div class="form-row">
+                                    <div class="form-group">
+                                        <label for="bedrooms">Bedrooms *</label>
+                                        <input type="number" id="bedrooms" placeholder="1" min="1" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="bathrooms">Bathrooms *</label>
+                                        <input type="number" id="bathrooms" placeholder="1" min="1" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="price">Monthly Price *</label>
+                                        <input type="number" id="price" placeholder="800" min="100" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group full-width">
+                                    <label for="description">Description *</label>
+                                    <textarea id="description" placeholder="Describe your property..." rows="4" required></textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-section">
+                                <h3>Amenities</h3>
+                                <div class="amenities-grid">
+                                    <label class="checkbox-group">
+                                        <input type="checkbox">
+                                        <span>WiFi</span>
+                                    </label>
+                                    <label class="checkbox-group">
+                                        <input type="checkbox">
+                                        <span>Furnished</span>
+                                    </label>
+                                    <label class="checkbox-group">
+                                        <input type="checkbox">
+                                        <span>Air Conditioning</span>
+                                    </label>
+                                    <label class="checkbox-group">
+                                        <input type="checkbox">
+                                        <span>Laundry</span>
+                                    </label>
+                                    <label class="checkbox-group">
+                                        <input type="checkbox">
+                                        <span>Parking</span>
+                                    </label>
+                                    <label class="checkbox-group">
+                                        <input type="checkbox">
+                                        <span>Gym</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary btn-lg">Publish Listing</button>
+                                <button type="reset" class="btn btn-outline btn-lg">Clear Form</button>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+
+                <!-- ==================== BOOKING REQUESTS ==================== -->
+                <section id="bookings" class="content-section">
+                    <div class="section-header">
+                        <h2>Booking Requests</h2>
+                        <span class="badge-large">5 pending</span>
+                    </div>
+
+                    <div class="bookings-container">
+                        <!-- Booking Request 1 -->
+                        <div class="booking-request-card">
+                            <div class="booking-status-indicator pending"></div>
+                            <div class="booking-content">
+                                <div class="booking-header">
+                                    <h3>Alex Chen</h3>
+                                    <span class="request-status pending-status">⏳ Pending</span>
+                                </div>
+                                <p class="booking-property">📍 Cozy Shared Apartment</p>
+                                <div class="booking-info">
+                                    <span>📅 Move-in: May 1, 2026</span>
+                                    <span>⏱️ Duration: 12 months</span>
+                                    <span>👤 1-2 people</span>
+                                </div>
+                                <div class="student-profile">
+                                    <p><strong>Student ID:</strong> SU-2024-5821</p>
+                                    <p><strong>University:</strong> State University</p>
+                                    <p><strong>Message:</strong> "Very interested in this property. Clean, convenient location!"</p>
+                                </div>
+                                <div class="booking-actions">
+                                    <button class="btn btn-sm btn-primary">Approve</button>
+                                    <button class="btn btn-sm btn-outline">Reject</button>
+                                    <button class="btn btn-sm btn-outline">Message</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Booking Request 2 -->
+                        <div class="booking-request-card">
+                            <div class="booking-status-indicator approved"></div>
+                            <div class="booking-content">
+                                <div class="booking-header">
+                                    <h3>Sarah Johnson</h3>
+                                    <span class="request-status approved-status">✅ Approved</span>
+                                </div>
+                                <p class="booking-property">📍 Modern Studio Apartment</p>
+                                <div class="booking-info">
+                                    <span>📅 Move-in: June 15, 2026</span>
+                                    <span>⏱️ Duration: 12 months</span>
+                                    <span>👤 1 person</span>
+                                </div>
+                                <div class="student-profile">
+                                    <p><strong>Student ID:</strong> TC-2024-3412</p>
+                                    <p><strong>University:</strong> Tech College</p>
+                                    <p><strong>Status:</strong> Deposit received, lease pending signature</p>
+                                </div>
+                                <div class="booking-actions">
+                                    <button class="btn btn-sm btn-outline">View Details</button>
+                                    <button class="btn btn-sm btn-outline">Send Lease</button>
+                                    <button class="btn btn-sm btn-outline">Message</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Booking Request 3 -->
+                        <div class="booking-request-card">
+                            <div class="booking-status-indicator pending"></div>
+                            <div class="booking-content">
+                                <div class="booking-header">
+                                    <h3>Michael Zhang</h3>
+                                    <span class="request-status pending-status">⏳ Pending</span>
+                                </div>
+                                <p class="booking-property">📍 Luxury Student Housing</p>
+                                <div class="booking-info">
+                                    <span>📅 Move-in: July 1, 2026</span>
+                                    <span>⏱️ Duration: 12 months</span>
+                                    <span>👤 2-3 people</span>
+                                </div>
+                                <div class="student-profile">
+                                    <p><strong>Student ID:</strong> CU-2024-7654</p>
+                                    <p><strong>University:</strong> City University</p>
+                                    <p><strong>Message:</strong> "Looking for a place for 3 students. Great group!"</p>
+                                </div>
+                                <div class="booking-actions">
+                                    <button class="btn btn-sm btn-primary">Approve</button>
+                                    <button class="btn btn-sm btn-outline">Reject</button>
+                                    <button class="btn btn-sm btn-outline">Message</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ==================== REVIEWS OVERVIEW ==================== -->
+                <section id="reviews" class="content-section">
+                    <div class="section-header">
+                        <h2>Reviews Overview</h2>
+                        <span class="badge-large">4.8 average rating</span>
+                    </div>
+
+                    <div class="reviews-overview-card">
+                        <div class="rating-summary">
+                            <div class="rating-display">
+                                <p class="rating-large">4.8</p>
+                                <p class="rating-stars">⭐⭐⭐⭐⭐</p>
+                                <p class="rating-text">Based on 88 reviews</p>
+                            </div>
+
+                            <div class="rating-distribution">
+                                <div class="rating-row">
+                                    <span>5★</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 75%"></div>
+                                    </div>
+                                    <span>66</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span>4★</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 18%"></div>
+                                    </div>
+                                    <span>16</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span>3★</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 5%"></div>
+                                    </div>
+                                    <span>4</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span>2★</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 2%"></div>
+                                    </div>
+                                    <span>2</span>
+                                </div>
+                                <div class="rating-row">
+                                    <span>1★</span>
+                                    <div class="rating-bar">
+                                        <div class="rating-fill" style="width: 0%"></div>
+                                    </div>
+                                    <span>0</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="reviews-list">
+                            <h3>Recent Reviews</h3>
+                            
+                            <!-- Review 1 -->
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-user">
+                                        <p class="user-name">Emma Wilson</p>
+                                        <p class="user-property">Cozy Shared Apartment</p>
+                                    </div>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <p class="review-title">"Perfect student housing!"</p>
+                                <p class="review-text">Great location, responsive landlord, clean apartment. Everything promised was delivered. Highly recommend!</p>
+                                <p class="review-date">2 weeks ago</p>
+                            </div>
+
+                            <!-- Review 2 -->
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-user">
+                                        <p class="user-name">David Lee</p>
+                                        <p class="user-property">Modern Studio Apartment</p>
+                                    </div>
+                                    <span class="review-rating">★★★★☆</span>
+                                </div>
+                                <p class="review-title">"Good value for money"</p>
+                                <p class="review-text">Nice apartment with modern amenities. A bit of noise from neighbors but overall very satisfied with the experience.</p>
+                                <p class="review-date">1 month ago</p>
+                            </div>
+
+                            <!-- Review 3 -->
+                            <div class="review-item">
+                                <div class="review-header">
+                                    <div class="review-user">
+                                        <p class="user-name">Sophie Martinez</p>
+                                        <p class="user-property">Luxury Student Housing</p>
+                                    </div>
+                                    <span class="review-rating">★★★★★</span>
+                                </div>
+                                <p class="review-title">"Exceptional experience!"</p>
+                                <p class="review-text">Outstanding service and facilities. The landlord is very professional and responsive. Perfect for student life with excellent amenities.</p>
+                                <p class="review-date">1.5 months ago</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <script src="../js/script.js"></script>
+    <script>
+        // Simple section switching for demo
+        document.querySelectorAll('.nav-item').forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                const section = item.dataset.section;
+                
+                // Hide all sections
+                document.querySelectorAll('.content-section').forEach(s => s.classList.remove('active'));
+                // Show selected section
+                document.getElementById(section).classList.add('active');
+                
+                // Update active nav item
+                document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+                item.classList.add('active');
+                
+                // Update page title
+                document.querySelector('.page-title').textContent = item.textContent.trim();
+                
+                // Close sidebar on mobile
+                if (window.innerWidth <= 768) {
+                    document.getElementById('landlordSidebar').classList.remove('active');
+                }
+            });
+        });
+
+        // Sidebar toggle
+        document.getElementById('sidebarToggle').addEventListener('click', () => {
+            document.getElementById('landlordSidebar').classList.toggle('active');
+        });
+
+        document.getElementById('sidebarClose').addEventListener('click', () => {
+            document.getElementById('landlordSidebar').classList.remove('active');
+        });
+
+        // Close sidebar when clicking outside
+        document.addEventListener('click', (e) => {
+            const sidebar = document.getElementById('landlordSidebar');
+            const toggle = document.getElementById('sidebarToggle');
+            if (!sidebar.contains(e.target) && !toggle.contains(e.target) && window.innerWidth <= 768) {
+                sidebar.classList.remove('active');
+            }
+        });
+    </script>
+</body>
+</html>
